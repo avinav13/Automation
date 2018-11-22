@@ -38,16 +38,6 @@ public class SeleniumLib
 			chkBx.click();
 		}
 	}
-//	/**********************verify element present in the HTML doc*************************/
-//	public void verifyElementExist(WebElement ele)
-//	{
-//		try
-//		{
-//			
-//		}
-//		catch
-//	}
-	
 	/*****************mouse overing****************************************************/
 	public void mouseOver(WebElement ele)
 	{
