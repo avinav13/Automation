@@ -1,0 +1,65 @@
+package Automation;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebTables 
+{
+	/**********************************Assignment 1**************************************/
+//	public static void main(String[] args) 
+//	{	
+//		System.setProperty("webdriver.chrome.driver", "D:/Selenium/Chrome/Latest/chromedriver.exe");
+//		WebDriver driver = new ChromeDriver();
+//		driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2fTestComplete11%2fWebOrders%2fdefault.aspx");
+//		driver.findElement(By.xpath("//input[@id='ctl00_MainContent_username']")).sendKeys("Tester");
+//		driver.findElement(By.xpath("//input[@id='ctl00_MainContent_password']")).sendKeys("test");
+//		driver.findElement(By.xpath("//input[@type='submit']")).click();
+//		
+//		List<WebElement> rows = driver.findElements(By.xpath("//table[@class='SampleTable']//tr"));
+//		int rowcount = rows.size();
+//		
+//		for(int i=1; i<=rowcount;i++)
+//		{
+//			List<WebElement> col1 = driver.findElements(By.xpath("//table[@class='SampleTable']//tr["+i+"]/th"));
+//			int colcount1= col1.size();
+//			for(int j=2; j<=colcount1-1; j++)
+//			{
+//				String text1 = driver.findElement(By.xpath("//table[@class='SampleTable']//tr["+i+"]/th["+j+"]")).getText();
+//				System.out.println(text1);
+//			}
+//			List<WebElement> col2 = driver.findElements(By.xpath("//table[@class='SampleTable']//tr["+i+"]/td"));
+//			int colcount2= col2.size();
+//			for(int k=2; k<=colcount2-1; k++)
+//			{
+//				String text2 = driver.findElement(By.xpath("//table[@class='SampleTable']//tr["+i+"]/td["+k+"]")).getText();
+//				System.out.println(text2);
+//			}
+//		}
+//	}
+	
+	/**********************************Assignment 2**************************************/
+	
+	public static void main(String[] args) 
+	{	
+		System.setProperty("webdriver.chrome.driver", "D:/Selenium/Chrome/Latest/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2fTestComplete11%2fWebOrders%2fdefault.aspx");
+		driver.findElement(By.xpath("//input[@id='ctl00_MainContent_username']")).sendKeys("Tester");
+		driver.findElement(By.xpath("//input[@id='ctl00_MainContent_password']")).sendKeys("test");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter Name and get the details...");
+		String name = in.next();
+		
+		name.equalsIgnoreCase(name);
+		
+		
+	}
+
+}
