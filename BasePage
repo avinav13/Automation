@@ -1,0 +1,88 @@
+package com.odoo.pageobjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+public abstract class BasePage 
+{
+	@FindBy(xpath="//a[@title='Applications']")
+	private WebElement Applications;
+	
+	@FindBy(xpath="//a[@class='o_menu_brand']")
+	private WebElement logo;
+	
+	@FindBy(xpath="//a[@class='dropdown-toggle o-no-caret o_menu_header_lvl_1'][contains(text(),'Sales')]")
+	private WebElement Sales;
+	
+	@FindBy(xpath="//a[contains(text(),'Leads')]")
+	private WebElement Leads;
+	
+	@FindBy(xpath="//a[contains(text(),'Reporting')]")
+	private WebElement Reporting;
+	
+	@FindBy(xpath="//a[contains(text(),'Configuration')]")
+	private WebElement Configuration;
+	
+	@FindBy(xpath="//a[@title='Activities']")
+	private WebElement Activities;
+	
+	@FindBy(xpath="//a[@title='Conversations']")
+	private WebElement Conversations;
+	
+	@FindBy(xpath="//a[@title='Customization']")
+	private WebElement Customization;
+	
+	@FindBy(xpath="//a[@class='dropdown-toggle']")
+	private WebElement Undropdown;
+	
+	public BasePage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	public void clickonApplications()
+	{
+		Applications.click();
+	}
+	public void verifylogo()
+	{
+		Assert.assertTrue(logo.isDisplayed());
+		Reporter.log("Logo is Displayed", true);
+	}
+	public void clickonSales()
+	{
+		Sales.click();
+	}
+	public void clickonLeads()
+	{
+		Leads.click();
+	}
+	public void clickonReporting()
+	{
+		Reporting.click();
+	}
+	public void clickonConfiguration()
+	{
+		Configuration.click();
+	}
+	public void clickonActivities()
+	{
+		Activities.click();
+	}
+	public void clickonConversations()
+	{
+		Conversations.click();
+	}
+	public void clickonCustomization()
+	{
+		Customization.click();
+	}
+	public void clickonUndropdown()
+	{
+		Undropdown.click();
+	}
+
+}
