@@ -1,0 +1,44 @@
+package Automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class HandlingDropdown {
+
+	public static void main(String[] args) 
+	{
+//		Select(C)
+//		-selectByIndex()
+//		-selectByValue()
+//		-selectByVisibleText()
+//		-deselectByIndex()
+//		-deselectByValue()
+//		-deselectByVisibleText()
+//		-isMultiple()------------------Boolean
+//		-getOptions()------------------List<Web Element>
+//		-getFirstSelectedOption()------Web Element
+//		-getAllselectedOption()--------List<Web Element>
+//		-deselectAll()
+		
+		System.setProperty("webdriver.chrome.driver", "D:/Work/Selenium/Chrome/Latest/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("file:///D:/Work/Selenium/MyFirstWebsite.html");
+		
+		WebElement Drpdwn = driver.findElement(By.xpath("//select[@name='Sports']"));
+		Select sel = new Select(Drpdwn);
+//		sel.selectByIndex(2);
+//		sel.selectByValue("3");
+//		sel.selectByVisibleText("Football");
+		
+		System.out.println(sel.isMultiple());
+		
+		WebElement Drpdwn1 = driver.findElement(By.xpath("//select[@name='Car']"));
+		Select sel1 = new Select(Drpdwn1);
+		System.out.println(sel1.isMultiple());
+
+	}
+
+}
