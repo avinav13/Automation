@@ -1,0 +1,102 @@
+package Automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WorkingWithWebDriver 
+{
+	public static void main(String[] args) 
+	{
+		//Visit your first HTML web page..
+		System.setProperty("webdriver.chrome.driver", "D:/Selenium/Chrome/Latest/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("file:///D:/Selenium/MyFirstWebsite.html");
+		
+//		WebDriver(I)
+//		-manage()
+//		-get()
+//		-navigate()
+//		-getTitle()-----------String
+//		-getPageSource()------String
+//		-getCurrentUrl()------String
+//		-getWindowHandle()
+//		-getWindowHandles()
+//		-close()
+//		-quit()
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		String pageSource = driver.getPageSource();
+		System.out.println(pageSource);
+	
+		driver.findElement(By.tagName("a")).click();
+		System.out.println(driver.getCurrentUrl());
+		
+//		WebElement(I)
+//		-Sendkeys()
+//		-click()
+//		-clear()
+//		-getText()-----------String
+//		-getAttribute()------String
+//		-getCssValue()-------String
+//		  -font-size---------By default present in HTML
+//		-getSize()-----------Dimension Class
+//		  -getHeight---------int
+//		  -getWeidth---------int
+//		-isDisplayed()-------Boolean
+//		-isSelected()--------Boolean
+//		-isEnabled()---------Boolean
+		
+		WebElement untxtbx = driver.findElement(By.id("user"));
+		untxtbx.sendKeys("abc");
+		untxtbx.clear();
+		untxtbx.sendKeys("xyz");
+		untxtbx.sendKeys(Keys.CONTROL+"a");
+		untxtbx.sendKeys(Keys.DELETE);
+		untxtbx.sendKeys("aaaaa");
+	
+		System.out.println(driver.findElement(By.tagName("h1")).getText());
+		
+		WebElement pwdtxtbx = driver.findElement(By.name("pwd"));
+		System.out.println(pwdtxtbx.getAttribute("placeholder"));
+		pwdtxtbx.sendKeys("123");
+		System.out.println(pwdtxtbx.getAttribute("value"));
+		
+		String headersize = driver.findElement(By.tagName("h1")).getCssValue("font-size");
+		System.out.println(headersize);
+		String linksize = driver.findElement(By.linkText("Facebook")).getCssValue("font-size");
+		System.out.println(linksize);
+		
+		Dimension imgsize = driver.findElement(By.tagName("img")).getSize();
+		System.out.println(imgsize);
+		int height = imgsize.getHeight();
+		int weidth = imgsize.getWidth();
+		System.out.println("image height "+height);
+		System.out.println("image weidth "+weidth);
+		int pageheight = driver.findElement(By.tagName("body")).getSize().getHeight();
+		System.out.println(pageheight);
+
+		boolean flag = driver.findElement(By.tagName("h1")).isDisplayed();
+		System.out.println(flag);
+		
+		WebElement Chckbx = driver.findElement(By.className("MyCheckbox"));
+		boolean flag1 = Chckbx.isSelected();
+		System.out.println(flag1);
+		if (flag1)
+		{
+			System.out.println("The checkbox is already checked");
+		}
+		else
+		{
+			System.out.println("Check the checkbox");
+			Chckbx.click();
+		}
+		
+	}
+
+}
